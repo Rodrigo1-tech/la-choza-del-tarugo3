@@ -1,0 +1,9 @@
+{
+	"name": "la-choza-del-tarugo",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Gestor compartido de la Choza del Tarugo",
+	"main": "server.js",
+	"scripts": { "start": "node server.js" },
+	"dependencies": { "ws": "^8.18.0" }
+}
