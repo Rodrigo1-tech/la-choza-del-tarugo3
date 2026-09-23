@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Choza del Tarugo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">LT</span><div><strong>LA CHOZA</strong><span>DEL TARUGO</span></div></div>
+    <div class="sync-status"><i id="sync-dot"></i><span id="sync-text">Conectando...</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div><p class="eyebrow">Control de la cuadrilla · 2026</p><h1>Las cuentas de la choza,<br><em>en orden.</em></h1><p class="hero-copy">Un solo sitio para saber cuánto hay, quién ha pagado y qué toca hacer esta semana.</p></div>
+      <div class="hero-stamp"><span>7</span><small>amigos<br>un local</small></div>
+    </section>
+
+    <section class="balance-panel">
+      <div><p class="eyebrow">Saldo disponible</p><div class="balance" id="balance">0,00 €</div><p class="balance-note" id="balance-note">Todo tranquilo por aquí</p></div>
+      <div class="balance-actions"><button class="button button-light" id="initial-balance-button">Ajustar saldo inicial</button><div class="updated" id="last-updated">Esperando datos</div></div>
+    </section>
+
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab active" data-section="resumen">Resumen</button><button class="tab" data-section="movimientos">Movimientos</button><button class="tab" data-section="recibos">Recibos</button><button class="tab" data-section="limpieza">Limpieza</button>
+    </nav>
+
+    <section class="section active" id="section-resumen">
+      <div class="section-heading"><div><p class="eyebrow">La cuadrilla</p><h2>Pagos del mes</h2></div><button class="button button-dark" data-open-form="payment">+ Añadir pago</button></div>
+      <div class="member-grid" id="member-grid"></div>
+      <div class="split-grid"><div class="paper-card"><div class="card-heading"><div><p class="eyebrow">Últimas entradas</p><h3>Actividad reciente</h3></div><span class="card-icon">↗</span></div><div id="recent-activity" class="activity-list"></div></div><div class="paper-card accent-card"><p class="eyebrow">Este mes</p><div class="big-stat" id="month-total">0,00 €</div><p>aportado por la cuadrilla</p><div class="progress"><span id="month-progress"></span></div><small id="month-count">0 de 7 han pagado</small></div></div>
+    </section>
+
+    <section class="section" id="section-movimientos"><div class="section-heading"><div><p class="eyebrow">Entradas y salidas</p><h2>Movimientos</h2></div><div class="button-group"><button class="button button-dark" data-open-form="expense">+ Gasto</button><button class="button button-outline" data-open-form="withdrawal">+ Retirada</button></div></div><div class="paper-card table-card"><div class="filter-row"><h3>Historial</h3><span id="movement-total">0 movimientos</span></div><div id="movement-list" class="movement-list"></div></div></section>
+
+    <section class="section" id="section-recibos"><div class="section-heading"><div><p class="eyebrow">Gastos fijos</p><h2>Recibos del local</h2></div><button class="button button-dark" data-open-form="bill">+ Añadir recibo</button></div><div class="bill-grid" id="bill-grid"></div></section>
+
+    <section class="section" id="section-limpieza"><div class="section-heading"><div><p class="eyebrow">Que brille la choza</p><h2>Turnos de limpieza</h2></div><button class="button button-dark" data-open-form="cleaning">+ Nuevo turno</button></div><div class="cleaning-board"><div class="week-label"><span>PLAN SEMANAL</span><strong id="week-range"></strong></div><div id="cleaning-list" class="cleaning-list"></div></div></section>
+
+    <footer><span>LA CHOZA DEL TARUGO</span><span>Los cambios se comparten al instante entre todos.</span></footer>
+  </main>
+
+  <dialog id="entry-dialog"><form method="dialog" id="entry-form"><button type="button" class="close" id="close-dialog">×</button><p class="eyebrow" id="form-eyebrow">Nueva entrada</p><h2 id="form-title">Añadir movimiento</h2><div id="form-fields"></div><div class="dialog-actions"><button type="button" class="button button-outline" id="cancel-dialog">Cancelar</button><button class="button button-dark" type="submit">Guardar</button></div></form></dialog>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
